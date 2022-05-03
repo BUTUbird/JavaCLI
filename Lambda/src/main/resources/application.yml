@@ -1,0 +1,28 @@
+server:
+  port: 8000
+
+web:
+  domain: http://localhost
+
+#数据库配置
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mariadb://localhost:3306/bt_forum?useUnicode=true&characterEncoding=utf8&autoReconnect=true&serverTimezone=GMT%2B8
+    type: com.zaxxer.hikari.HikariDataSource
+
+    #Knife4J运行依赖
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+#是否激活 swagger
+swagger:
+  enable: true
+
+#日志配置
+logging:
+  level:
+    root: info
+    org.butu: debug
