@@ -1,39 +1,21 @@
-package org.butu;
+package org.butu.MethodCode;
 
 import org.butu.model.entity.Author;
 import org.butu.model.entity.Book;
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * @program: JavaCLI
  * @description:
- * @packagename: org.butu
+ * @packagename: org.butu.MethodCode
  * @author: BUTUbird
- * @date: 2022-05-03 23:42
+ * @date: 2022-05-04 00:39
  **/
-@SpringBootTest
-public class TestApp {
-    @Test
-    public void test(){
-        //调用空参的sorted()方法，需要流中的元素实现Comparable接口
-        List<Author> authors = getAuthors();
-        Optional<List<Author>> optional = Optional.of(authors);
-        authors
-                .stream()//把集合转换成流
-                .distinct()//去重
-                .sorted()
-//                .sorted((o1,o2)->o2.getAge()-o1.getAge())//降序
-                .limit(2)//取前两个
-                //.filter(author -> author.getAge() < 18) //筛选年龄小于18岁的
-                .forEach(author -> System.out.println(author.getName()));
-    }
-    private static List<Author> getAuthors() {
+public class GetAuthors {
+    public static List<Author> getAuthors() {
         //数据初始化
         Author author = new Author(1L,"蒙多",33,"一个从菜刀中明悟哲理的祖安人",null);
         Author author2 = new Author(2L,"亚拉索",15,"狂风也追逐不上他的思考速度",null);
@@ -63,4 +45,5 @@ public class TestApp {
 
         return new ArrayList<>(Arrays.asList(author,author2,author3,author4));
     }
+
 }

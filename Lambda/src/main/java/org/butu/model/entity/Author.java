@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 /**
  * @program: JavaCLI
  * @description:
@@ -16,7 +18,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode//用于后期的去重使用
-public class Author {
+public class Author implements Comparable<Author> {
     //id
     private Long id;
     //姓名
@@ -27,4 +29,9 @@ public class Author {
     private String intro;
     //作品
     private List<Book> books;
+
+    @Override
+    public int compareTo(Author o) {
+        return this.getAge() - o.getAge();
+    }
 }
